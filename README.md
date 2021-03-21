@@ -8,3 +8,5 @@ Terraform で GCP を構築するコード例
 
 # 内容説明
 下記Qiita参照
+
+https://qiita.com/suzuyui/items/879dfa5d837a19c39a54
