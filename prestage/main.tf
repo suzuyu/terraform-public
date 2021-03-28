@@ -8,7 +8,7 @@
 ## 組織管理者が課金アカウントへ権限付与できるようにする
 # gcloud config set account [課金アカウントのアドミンアカウント]
 # gcloud beta billing accounts list
-# gcloud beta billing accounts add-iam-policy-binding [var.gcp_common.billing_account] --member=user:[org admin user account] --role roles/billing.user
+# gcloud beta billing accounts add-iam-policy-binding [var.gcp_common.billing_account] --member=user:[org admin user account] --role roles/billing.admin
 ## 組織管理者のアカウントで gcloud コマンドを利用できるようにする
 # gcloud auth login [org admin user account]
 # gcloud config set account [org admin user account]
@@ -16,8 +16,6 @@
 ## 組織管理者が組織ポリシーを編集できるようにする
 # gcloud organizations list
 # gcloud organizations add-iam-policy-binding [var.gcp_common.org_id] --member=user:[org admin user account] --role=roles/orgpolicy.policyAdmin
-## サービス有効化に Resource Manager API の有効化が必要らしいので有効化する
-# gcloud services enable cloudresourcemanager.googleapis.com
 ## workspace を "dev", "prd" などにする
 # terraform workspace new dev
 
