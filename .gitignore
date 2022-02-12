@@ -37,3 +37,6 @@ override.tf.json
 
 # ssh
 id_rsa*
+
+# tfvars
+*.tfvars

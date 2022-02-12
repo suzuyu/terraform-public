@@ -36,6 +36,7 @@ resource "google_project_service" "host_api_enable" {
     "container.googleapis.com",            # Subnet を Kubernetes で利用させるときにホスト側でも必要
     "dns.googleapis.com",                  # CloudDNS
     "accesscontextmanager.googleapis.com", # VPC Service Controls に必要
+    "essentialcontacts.googleapis.com",    # essentialcontacts
   ])
   service = each.value
   depends_on = [

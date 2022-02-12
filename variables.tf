@@ -127,3 +127,9 @@ variable "vpn" {
     asn                     = 65101
   }
 }
+
+
+variable "essentinal_contacts_domains" {
+  type    = list(string)
+  default = ["@xxx.xxx"]
+}

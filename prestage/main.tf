@@ -44,6 +44,7 @@ resource "google_project_service" "terraform" {
     "compute.googleapis.com",
     "container.googleapis.com",
     "accesscontextmanager.googleapis.com", # VPC Service Controls に必要
+    "essentialcontacts.googleapis.com",    # essentialcontacts
   ])
   service = each.value
 
@@ -157,6 +158,19 @@ resource "google_billing_account_iam_binding" "user" {
 
   depends_on = [
     google_project.terraform,
+  ]
+}
+
+resource "google_organization_iam_binding" "essentialcontacts" {
+  org_id = google_project.terraform.org_id
+  for_each = toset([
+    "roles/essentialcontacts.admin", # essentialcontacts
+  ])
+  role = each.value
+
+  members = [
+    join(":", ["serviceAccount", google_service_account.terraform.email]),
+    join(":", ["group", var.admin_user_group.email])
   ]
 }
 
