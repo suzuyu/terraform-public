@@ -1,38 +1,3 @@
-# # GCE
-# resource "google_compute_instance" "service1_gce1" {
-#   name         = "bastion-sv01"
-#   machine_type = "f1-micro"
-#   zone         = var.gcp_common.zone
-#   project      = google_project.service1.name
-
-#   boot_disk {
-#     initialize_params {
-#       image = "centos-cloud/centos-7"
-#     }
-#   }
-#   network_interface {
-#     subnetwork = google_compute_subnetwork.service1-gce-subnets.id
-
-#     access_config {
-#       // Ephemeral IP
-#     }
-#   }
-
-#   service_account {
-#     # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-#     email  = google_service_account.service1_public_account.email
-#     scopes = ["cloud-platform"]
-#   }
-
-#   metadata = {
-#     ssh-keys = "${var.gce_ssh.user}:${file(var.gce_ssh.pub_ssh_key_file)}"
-#   }
-# }
-
-# output "service1_gce1_global_ip" {
-#   value = google_compute_instance.service1_gce1.network_interface[0].access_config[0].nat_ip
-# }
-
 # # GKE
 # resource "google_container_cluster" "servie1_gke" {
 #   # provider        = google-beta

@@ -88,6 +88,16 @@ resource "google_project_iam_binding" "service1_editor" {
   ]
 }
 
+resource "google_project_iam_binding" "service1_compute_instanceadmin_v1" {
+  project = google_project.service1.id
+
+  role = "roles/compute.instanceAdmin.v1"
+
+  members = [
+    "serviceAccount:service-${google_project.service1.number}@compute-system.iam.gserviceaccount.com"
+  ]
+}
+
 
 # サービスプロジェクト設定
 resource "google_compute_shared_vpc_service_project" "service1" {
