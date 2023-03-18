@@ -269,6 +269,7 @@ resource "google_organization_iam_binding" "organization_org_admin" {
     "roles/iam.organizationRoleAdmin",
     "roles/orgpolicy.policyAdmin",            # 組織ポリシー管理者
     "roles/accesscontextmanager.policyAdmin", # VPC SC 時に必要
+    "roles/logging.admin",
   ])
   role = each.value
 
@@ -319,4 +320,27 @@ resource "google_folder" "organization_service_folder" {
   depends_on = [
     google_organization_policy.skipDefaultNetworkCreation,
   ]
+}
+
+# Organization Aggregate Logging
+## https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_organization_sink
+resource "google_logging_organization_sink" "all_log" {
+  name        = "organization-ag-all-log-sink"
+  description = "Organization Under ALL Log Sink"
+  org_id      = var.gcp_common.org_id
+
+  include_children = true # 組織は以下の全てのログを sink 対象にする
+
+  # Can export to pubsub, cloud storage, or bigquery, logging
+  # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_organization_sink#destination
+  # https://cloud.google.com/logging/docs/central-log-storage?hl=ja#create-org-sink
+  # parameter ./projects/org_logging/
+  destination = "logging.googleapis.com/${var.org_aggregate_log_bucket_id}"
+
+  # # Log all WARN or higher severity messages relating to instances
+  # filter = "logName:cloudaudit.googleapis.com"
+}
+
+output "org_all_log_writer_identity" {
+  value = google_logging_organization_sink.all_log.writer_identity
 }

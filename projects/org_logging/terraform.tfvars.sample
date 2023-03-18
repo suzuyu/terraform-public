@@ -1,0 +1,10 @@
+project_id                    = "xxxxxxxxxv"
+host_project_id               = "projects/xxxxxxxxxxxv" # ../../host.tf 
+parent_folder_name            = "folders/xxxxxxxx"             # ../../organization.tf
+folder_name                   = "ag-log"
+billing_account               = "xxxxxx-xxxxxx-xxxxx"
+org_logging_admin_group_email = "gcp-organization-admin@xxxx.xxx"
+logging_retention_days        = 2                                                                            # TMP TEST
+log_storage_class             = "STANDARD"                                                                   # Tmp TEST
+log_storage_delete_age        = "3"                                                                          # Tmp TEST
+all_log_writer_identity       = "serviceAccount:oxxxxxxxxxxx-xxxxxxx@gcp-sa-logging.iam.gserviceaccount.com" # output ../../organization.tf

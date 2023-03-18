@@ -45,6 +45,7 @@ resource "google_project_service" "terraform" {
     "container.googleapis.com",
     "accesscontextmanager.googleapis.com", # VPC Service Controls に必要
     "essentialcontacts.googleapis.com",    # essentialcontacts
+    "cloudasset.googleapis.com",
   ])
   service = each.value
 
