@@ -133,3 +133,18 @@ variable "essentinal_contacts_domains" {
   type    = list(string)
   default = ["@xxx.xxx"]
 }
+
+
+variable "org_aggregate_log_bucket_id" {
+  type    = string
+  default = "projects/xxxxxxxxx/locations/asia-northeast1/buckets/xxxxxxxxxx" # ./projects/org_logging/
+}
+
+
+variable "org_aggregate_log_bucket_project_num" {
+  type    = string
+}
+
+variable "vpc_sc_perimeter_internal_project_list" {
+  type = list
+}
