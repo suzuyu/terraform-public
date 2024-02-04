@@ -322,6 +322,10 @@ resource "google_folder" "organization_service_folder" {
   ]
 }
 
+output "organization_service_folder_id" {
+  value = google_folder.organization_service_folder.id
+}
+
 # Organization Aggregate Logging
 ## https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/logging_organization_sink
 resource "google_logging_organization_sink" "all_log" {

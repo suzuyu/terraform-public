@@ -1,0 +1,7 @@
+project_id                  = "BAREMETAL_PROJECT_NAME"
+folder_name                 = "BAREMETAL_FOLDER_NAME"
+admin_group_email           = "gcp-anthosbaremetal-admin@[YOUR_DOMAIN]"
+logging_retention_days      = 2          # TMP TEST
+log_storage_class           = "STANDARD" # Tmp TEST
+log_storage_delete_age      = "3"        # Tmp TEST
+terraform_state_bucket_name = "YOUR_TERRAFORM_STATE_BUCKET_NAME"

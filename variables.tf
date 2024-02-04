@@ -142,9 +142,14 @@ variable "org_aggregate_log_bucket_id" {
 
 
 variable "org_aggregate_log_bucket_project_num" {
-  type    = string
+  type = string
 }
 
 variable "vpc_sc_perimeter_internal_project_list" {
-  type = list
+  type = list(any)
+}
+
+variable "google_admin_customer_id" {
+  type    = string
+  default = "XXXXXX"
 }
