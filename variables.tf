@@ -133,3 +133,8 @@ variable "essentinal_contacts_domains" {
   type    = list(string)
   default = ["@xxx.xxx"]
 }
+
+variable "google_admin_customer_id" {
+  type    = string
+  default = "XXXXXX"
+}

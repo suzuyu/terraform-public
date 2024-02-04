@@ -269,6 +269,7 @@ resource "google_organization_iam_binding" "organization_org_admin" {
     "roles/iam.organizationRoleAdmin",
     "roles/orgpolicy.policyAdmin",            # 組織ポリシー管理者
     "roles/accesscontextmanager.policyAdmin", # VPC SC 時に必要
+    "roles/logging.admin",
   ])
   role = each.value
 
@@ -319,4 +320,8 @@ resource "google_folder" "organization_service_folder" {
   depends_on = [
     google_organization_policy.skipDefaultNetworkCreation,
   ]
+}
+
+output "organization_service_folder_id" {
+  value = google_folder.organization_service_folder.id
 }
