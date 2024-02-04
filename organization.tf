@@ -269,7 +269,6 @@ resource "google_organization_iam_binding" "organization_org_admin" {
     "roles/iam.organizationRoleAdmin",
     "roles/orgpolicy.policyAdmin",            # 組織ポリシー管理者
     "roles/accesscontextmanager.policyAdmin", # VPC SC 時に必要
-    "roles/logging.admin",
   ])
   role = each.value
 
