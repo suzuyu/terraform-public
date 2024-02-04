@@ -320,3 +320,7 @@ resource "google_folder" "organization_service_folder" {
     google_organization_policy.skipDefaultNetworkCreation,
   ]
 }
+
+output "organization_service_folder_id" {
+  value = google_folder.organization_service_folder.id
+}

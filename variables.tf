@@ -133,3 +133,9 @@ variable "essentinal_contacts_domains" {
   type    = list(string)
   default = ["@xxx.xxx"]
 }
+
+# commit 漏れ追加 / 2024.02
+variable "google_admin_customer_id" {
+  type    = string
+  default = "XXXXXX"
+}

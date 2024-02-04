@@ -20,6 +20,14 @@ resource "google_project" "host_project" {
   ]
 }
 
+output "host_billing_account" {
+  value = google_project.host_project.billing_account
+}
+
+output "host_project_id" {
+  value = google_project.host_project.id
+}
+
 
 # ホストプロジェクトの API 管理
 resource "google_project_service" "host_api_enable" {
