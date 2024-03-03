@@ -1,0 +1,12 @@
+# 通知先メールアドレスリスト
+infrastructure_email_list = ["[YOUR_EMAIL_ACCOUT]@[YOUR_EMAIL_DOMAIN]]", ]
+service_email_list        = ["[YOUR_EMAIL_ACCOUT]@[YOUR_EMAIL_DOMAIN]]", ]
+
+# 承認グループ
+infrastructure_approvers_list = ["group:gcp-security-admins@[YOUR_DOMAIN_NAME]", "group:gcp-network-admins@[YOUR_DOMAIN_NAME]", ]
+service_approvers_list        = ["group:gcp-security-admins@[YOUR_DOMAIN_NAME]", ]
+
+# ID 引用先のバケット情報
+organization_terraform_state_bucket_name = "suzuyu-terraformadmin-dev-terraform-backet"
+organization_terraform_state_workspace   = "dev"　 # workspace を使用してなければ (=`default`)ならば指定しない
+organization_terraform_state_prefix      = "terraform/state"

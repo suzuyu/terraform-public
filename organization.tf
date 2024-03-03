@@ -269,6 +269,8 @@ resource "google_organization_iam_binding" "organization_org_admin" {
     "roles/iam.organizationRoleAdmin",
     "roles/orgpolicy.policyAdmin",            # 組織ポリシー管理者
     "roles/accesscontextmanager.policyAdmin", # VPC SC 時に必要
+    "roles/axt.admin",                        # https://cloud.google.com/assured-workloads/access-transparency/docs/enable?hl=ja&authuser=1#configuring
+    "roles/accessapproval.configEditor",      # https://cloud.google.com/assured-workloads/access-approval/docs/access-control?hl=ja#update-configuration
   ])
   role = each.value
 
@@ -309,6 +311,10 @@ resource "google_folder" "organization_infrastructure_folder" {
   depends_on = [
     google_organization_policy.skipDefaultNetworkCreation,
   ]
+}
+
+output "organization_infrastructure_folder_id" {
+  value = google_folder.organization_infrastructure_folder.id
 }
 
 # サービス向けフォルダ
